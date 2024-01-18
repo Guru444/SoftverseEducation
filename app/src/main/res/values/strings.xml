@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SoftverseEducation</string>
+    <string name="hello_message">Merhaba Dostlar</string>
+
+    <string name="register_info">Zaten Kayıtlıyım!</string>
+</resources>
