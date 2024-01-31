@@ -15,7 +15,7 @@ class NumberListActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.apply {
-
+            //deneme
         }
     }
 }
