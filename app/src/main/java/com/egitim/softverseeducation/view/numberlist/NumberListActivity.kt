@@ -2,6 +2,7 @@ package com.egitim.softverseeducation.view.numberlist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egitim.softverseeducation.databinding.ActivityNumberListBinding
 import com.egitim.softverseeducation.model.Number
@@ -19,7 +20,18 @@ class NumberListActivity : AppCompatActivity() {
 
         for(x in 1..100){
             numberList.add(Number(x))
+
         }
+        binding.btnSayiEkle.setOnClickListener{
+            if (!numberList.contains(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))){
+                numberList.add(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))
+                numberAdapter.setNumberList(numberList)
+                Toast.makeText(this,binding.edtSayiEkle.text.toString() + " eklendi",Toast.LENGTH_LONG).show()
+            }else {
+                Toast.makeText(this, "Aynı sayı listede bulunuyor.", Toast.LENGTH_LONG).show()
+            }
+        }
+
 
 
 
