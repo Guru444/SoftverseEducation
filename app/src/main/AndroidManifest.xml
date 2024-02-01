@@ -18,6 +18,9 @@
             android:name=".view.message.MessageActivity"
             android:exported="false" />
         <activity
+            android:name=".view.numberlist.NumberListActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.message.MessageDetailActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan|adjustResize" />
@@ -40,7 +43,7 @@
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".view.numberlist.NumberListActivity"
+            android:name=".view.NumberDetailPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
