@@ -13,7 +13,7 @@ class NumberDetailPage : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        setBar(60)
+        setBar(80)
     }
     fun setBar(sayi:Int){
         binding.numaraBar.setProgress(sayi,true)
