@@ -8,6 +8,7 @@ import com.egitim.softverseeducation.R
 import com.egitim.softverseeducation.databinding.NumberItemLayoutBinding
 import com.egitim.softverseeducation.model.Number
 
+
 class NumberListAdapter : RecyclerView.Adapter<NumberListAdapter.NumberViewHolder>() {
 
     private var numberList: ArrayList<Number> = arrayListOf()
@@ -26,6 +27,7 @@ class NumberListAdapter : RecyclerView.Adapter<NumberListAdapter.NumberViewHolde
         holder.degerleriBas(numberList[position])
     }
     inner class NumberViewHolder(val binding: NumberItemLayoutBinding) : RecyclerView.ViewHolder(binding.root){
+
         fun degerleriBas(number: Number){
 
             if (number.sayi%2==0){
@@ -35,6 +37,7 @@ class NumberListAdapter : RecyclerView.Adapter<NumberListAdapter.NumberViewHolde
                 binding.numberItemLayout.background = ContextCompat.getDrawable(binding.numberItemLayout.context, R.drawable.line_custom)
                 binding.tvNumber.text = number.sayi.toString() + " Tek"
             }
+
         }
 
 
@@ -43,4 +46,5 @@ class NumberListAdapter : RecyclerView.Adapter<NumberListAdapter.NumberViewHolde
         this.numberList = numberList
         notifyDataSetChanged()
     }
+
 }
