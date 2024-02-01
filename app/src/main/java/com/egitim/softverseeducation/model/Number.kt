@@ -1,5 +1,5 @@
 package com.egitim.softverseeducation.model
 
-data class Numara(
+data class Number(
     var sayi: Int
 )

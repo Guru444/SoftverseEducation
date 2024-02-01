@@ -6,12 +6,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.egitim.softverseeducation.R
 import com.egitim.softverseeducation.databinding.NumberItemLayoutBinding
-import com.egitim.softverseeducation.model.Numara
-import com.egitim.softverseeducation.util.changeTextColor
+import com.egitim.softverseeducation.model.Number
 
 class NumberListAdapter : RecyclerView.Adapter<NumberListAdapter.NumberViewHolder>() {
 
-    private var numberList: ArrayList<Numara> = arrayListOf()
+    private var numberList: ArrayList<Number> = arrayListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NumberViewHolder {
         val binding = NumberItemLayoutBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -27,9 +26,9 @@ class NumberListAdapter : RecyclerView.Adapter<NumberListAdapter.NumberViewHolde
         holder.degerleriBas(numberList[position])
     }
     inner class NumberViewHolder(val binding: NumberItemLayoutBinding) : RecyclerView.ViewHolder(binding.root){
-        fun degerleriBas(numara: Numara){
-            binding.tvNumber.text = numara.sayi.toString()
-            if (numara.sayi%2==0){
+        fun degerleriBas(number: Number){
+            binding.tvNumber.text = number.sayi.toString()
+            if (number.sayi%2==0){
                 binding.numberItemLayout.background = ContextCompat.getDrawable(binding.numberItemLayout.context, R.drawable.line_custom_blue)
             }else{
                 binding.numberItemLayout.background = ContextCompat.getDrawable(binding.numberItemLayout.context, R.drawable.line_custom)
@@ -38,7 +37,7 @@ class NumberListAdapter : RecyclerView.Adapter<NumberListAdapter.NumberViewHolde
 
 
     }
-    fun setNumberList(numberList: ArrayList<Numara>){
+    fun setNumberList(numberList: ArrayList<Number>){
         this.numberList = numberList
         notifyDataSetChanged()
     }
