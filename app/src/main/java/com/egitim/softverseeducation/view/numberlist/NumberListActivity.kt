@@ -32,6 +32,10 @@ class NumberListActivity : AppCompatActivity() {
             }
         }
 
+        binding.btnSayiAra.setOnClickListener{
+            numberAdapter.setNumberList(numberList.filter { it.sayi.equals(Integer.parseInt(binding.edtSayiAra.text.toString())) } as ArrayList<Number>)
+        }
+
 
 
 
