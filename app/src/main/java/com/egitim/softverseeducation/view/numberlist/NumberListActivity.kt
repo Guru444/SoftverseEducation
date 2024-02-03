@@ -36,6 +36,12 @@ class NumberListActivity : AppCompatActivity() {
             numberAdapter.setNumberList(numberList.filter { it.sayi.equals(Integer.parseInt(binding.edtSayiAra.text.toString())) } as ArrayList<Number>)
         }
 
+        numberAdapter.itemClickListener = {
+            Toast.makeText(this@NumberListActivity,(it.sayi*2).toString(),Toast.LENGTH_SHORT).show()
+        }
+
+
+
 
 
 

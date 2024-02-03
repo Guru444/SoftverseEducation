@@ -12,6 +12,8 @@ import com.egitim.softverseeducation.model.Number
 class NumberListAdapter : RecyclerView.Adapter<NumberListAdapter.NumberViewHolder>() {
 
     private var numberList: ArrayList<Number> = arrayListOf()
+
+    var itemClickListener: (Number) -> Unit = {_->}
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NumberViewHolder {
         val binding = NumberItemLayoutBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -36,6 +38,9 @@ class NumberListAdapter : RecyclerView.Adapter<NumberListAdapter.NumberViewHolde
             }else{
                 binding.numberItemLayout.background = ContextCompat.getDrawable(binding.numberItemLayout.context, R.drawable.line_custom)
                 binding.tvNumber.text = number.sayi.toString() + " Tek"
+            }
+            binding.numberItemLayout.setOnClickListener{
+                itemClickListener(number)
             }
 
         }
