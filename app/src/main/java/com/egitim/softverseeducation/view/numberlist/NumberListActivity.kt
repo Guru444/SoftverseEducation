@@ -20,7 +20,6 @@ class NumberListActivity : AppCompatActivity() {
 
         for(x in 1..100){
             numberList.add(Number(x))
-
         }
         binding.btnSayiEkle.setOnClickListener{
             if (!numberList.contains(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))){
@@ -36,9 +35,10 @@ class NumberListActivity : AppCompatActivity() {
             numberAdapter.setNumberList(numberList.filter { it.sayi.equals(Integer.parseInt(binding.edtSayiAra.text.toString())) } as ArrayList<Number>)
         }
 
-
-
-
+        numberAdapter.itemClickListener = {
+            Toast.makeText(this@NumberListActivity,(it.sayi*2).toString(),Toast.LENGTH_SHORT).show()
+        }
+        
         binding.apply {
             rvNumberList.layoutManager = LinearLayoutManager(this@NumberListActivity,LinearLayoutManager.VERTICAL,false)
             rvNumberList.adapter = numberAdapter
