@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egitim.softverseeducation.databinding.ActivityNumberListBinding
 import com.egitim.softverseeducation.model.Number
+import com.egitim.softverseeducation.util.mesaj
 import com.egitim.softverseeducation.view.NumberDetailPage
 import com.egitim.softverseeducation.view.numberlist.adapter.NumberListAdapter
 
@@ -24,28 +25,32 @@ class NumberListActivity : AppCompatActivity() {
             numberList.add(Number(x))
         }
         binding.btnSayiEkle.setOnClickListener{
-            if (!numberList.contains(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))){
+            if(binding.edtSayiEkle.text.toString().isEmpty()){
+                mesaj("Boş bırakılamaz",this)
+            }
+            else if (!numberList.contains(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))){
                 numberList.add(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))
                 numberAdapter.setNumberList(numberList)
-                Toast.makeText(this,binding.edtSayiEkle.text.toString() + " eklendi",Toast.LENGTH_LONG).show()
+                mesaj(binding.edtSayiEkle.text.toString() + " eklendi",this)
             }else {
-                Toast.makeText(this, "Aynı sayı listede bulunuyor.", Toast.LENGTH_LONG).show()
+                mesaj("Aynı sayı listede bulunuyor.",this)
             }
         }
 
         binding.btnSayiAra.setOnClickListener{
-            numberAdapter.setNumberList(numberList.filter { it.sayi.equals(Integer.parseInt(binding.edtSayiAra.text.toString())) } as ArrayList<Number>)
+            if(binding.edtSayiAra.text.toString().isEmpty()){
+                mesaj("Boş bırakılamaz",this)
+            }else{
+                numberAdapter.setNumberList(numberList.filter { it.sayi.equals(Integer.parseInt(binding.edtSayiAra.text.toString())) } as ArrayList<Number>)
+            }
         }
 
         numberAdapter.itemClickListener = {
-            Toast.makeText(this@NumberListActivity,("Sayı iki katı:" + it.sayi*2).toString(),Toast.LENGTH_SHORT).show()
+            mesaj(("Sayı iki katı : " + it.sayi*2).toString(),this)
             intent = Intent(this,NumberDetailPage::class.java)
             intent.putExtra("deger",it.sayi)
             startActivity(intent)
-
-
         }
-        
         binding.apply {
             rvNumberList.layoutManager = LinearLayoutManager(this@NumberListActivity,LinearLayoutManager.VERTICAL,false)
             rvNumberList.adapter = numberAdapter

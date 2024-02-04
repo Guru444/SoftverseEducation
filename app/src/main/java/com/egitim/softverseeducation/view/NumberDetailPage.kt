@@ -2,7 +2,6 @@ package com.egitim.softverseeducation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.egitim.softverseeducation.R
 import com.egitim.softverseeducation.databinding.ActivityNumberDetailPageBinding
 
 class NumberDetailPage : AppCompatActivity() {
@@ -12,10 +11,14 @@ class NumberDetailPage : AppCompatActivity() {
         binding = ActivityNumberDetailPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        setBar(intent.getIntExtra("deger",0))
+        setBar(intent.getIntExtra("deger", 0))
     }
-    fun setBar(sayi:Int){
-        binding.numaraBar.setProgress(sayi,true)
+    fun setBar(sayi: Int) {
+        binding.numaraBar.setProgress(sayi, true)
+        if(sayi<101){
+            binding.tvYuzdelik.setText("%"+sayi.toString())
+        }else{
+            binding.tvYuzdelik.setText("%"+(sayi%100).toString())
+        }
     }
 }

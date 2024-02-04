@@ -20,4 +20,16 @@
         android:progressDrawable="@drawable/circle"
         android:progress="75">
     </ProgressBar>
+
+    <TextView
+        android:id="@+id/tv_yuzdelik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="%100"
+        android:textSize="60sp"
+        app:layout_constraintTop_toTopOf="@+id/numara_bar"
+        app:layout_constraintBottom_toBottomOf="@+id/numara_bar"
+        app:layout_constraintStart_toStartOf="@+id/numara_bar"
+        app:layout_constraintEnd_toEndOf="@+id/numara_bar"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
