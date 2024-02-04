@@ -39,12 +39,7 @@ class NumberListActivity : AppCompatActivity() {
         numberAdapter.itemClickListener = {
             Toast.makeText(this@NumberListActivity,(it.sayi*2).toString(),Toast.LENGTH_SHORT).show()
         }
-
-
-
-
-
-
+        
         binding.apply {
             rvNumberList.layoutManager = LinearLayoutManager(this@NumberListActivity,LinearLayoutManager.VERTICAL,false)
             rvNumberList.adapter = numberAdapter
