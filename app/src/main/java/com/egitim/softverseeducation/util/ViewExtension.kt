@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.egitim.softverseeducation.R
+import com.egitim.softverseeducation.databinding.ActivityNumberDetailPageBinding
 import com.egitim.softverseeducation.model.EdittextModel
 
 
@@ -36,6 +37,10 @@ fun String.merhabaDe() : String{
 
 fun topla(sayi1: Int, sayi2: Int) : Int{
     return sayi1 + sayi2
+}
+
+fun mesaj(metin: String,context: Context){
+    Toast.makeText(context,metin,Toast.LENGTH_SHORT).show()
 }
 
 
