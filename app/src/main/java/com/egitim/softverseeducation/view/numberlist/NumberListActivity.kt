@@ -20,7 +20,6 @@ class NumberListActivity : AppCompatActivity() {
 
         for(x in 1..100){
             numberList.add(Number(x))
-
         }
         binding.btnSayiEkle.setOnClickListener{
             if (!numberList.contains(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))){
