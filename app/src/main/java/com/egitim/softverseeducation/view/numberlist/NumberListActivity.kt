@@ -23,7 +23,6 @@ class NumberListActivity : AppCompatActivity() {
 
         for(x in 1..100){
             numberList.add(Number(x))
-
         }
         binding.btnSayiEkle.setOnClickListener{
             if(binding.edtSayiEkle.text.toString().isEmpty()){
@@ -52,7 +51,6 @@ class NumberListActivity : AppCompatActivity() {
             intent.putExtra("deger",it.sayi)
             startActivity(intent)
         }
-
         binding.apply {
             rvNumberList.layoutManager = LinearLayoutManager(this@NumberListActivity,LinearLayoutManager.VERTICAL,false)
             rvNumberList.adapter = numberAdapter
