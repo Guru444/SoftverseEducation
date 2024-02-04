@@ -1,11 +1,13 @@
 package com.egitim.softverseeducation.view.numberlist
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egitim.softverseeducation.databinding.ActivityNumberListBinding
 import com.egitim.softverseeducation.model.Number
+import com.egitim.softverseeducation.view.NumberDetailPage
 import com.egitim.softverseeducation.view.numberlist.adapter.NumberListAdapter
 
 class NumberListActivity : AppCompatActivity() {
@@ -36,7 +38,12 @@ class NumberListActivity : AppCompatActivity() {
         }
 
         numberAdapter.itemClickListener = {
-            Toast.makeText(this@NumberListActivity,(it.sayi*2).toString(),Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@NumberListActivity,("Sayı iki katı:" + it.sayi*2).toString(),Toast.LENGTH_SHORT).show()
+            intent = Intent(this,NumberDetailPage::class.java)
+            intent.putExtra("deger",it.sayi)
+            startActivity(intent)
+
+
         }
         
         binding.apply {
