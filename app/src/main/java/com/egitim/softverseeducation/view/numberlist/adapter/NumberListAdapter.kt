@@ -42,6 +42,10 @@ class NumberListAdapter : RecyclerView.Adapter<NumberListAdapter.NumberViewHolde
             binding.numberItemLayout.setOnClickListener{
                 itemClickListener(number)
             }
+            binding.ivRemoveNumber.setOnClickListener{
+                numberList.remove(number)
+                notifyDataSetChanged()
+            }
 
         }
 
