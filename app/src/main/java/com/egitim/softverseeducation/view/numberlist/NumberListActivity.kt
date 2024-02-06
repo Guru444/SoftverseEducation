@@ -25,16 +25,22 @@ class NumberListActivity : AppCompatActivity() {
             numberList.add(Number(x))
         }
         binding.btnSayiEkle.setOnClickListener{
-            if(binding.edtSayiEkle.text.toString().isEmpty()){
-                mesaj("Boş bırakılamaz",this)
+            try {
+                if(binding.edtSayiEkle.text.toString().isEmpty()){
+                    mesaj("Boş bırakılamaz",this)
+                }
+
+                else if (!numberList.contains(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))){
+                    numberList.add(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))
+                    numberAdapter.setNumberList(numberList)
+                    mesaj(binding.edtSayiEkle.text.toString() + " eklendi",this)
+                }else {
+                    mesaj("Aynı sayı listede bulunuyor.",this)
+                }
+            }catch(e:Exception){
+                com.egitim.softverseeducation.util.mesaj("Girilen Değer Sayı Değildir",this)
             }
-            else if (!numberList.contains(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))){
-                numberList.add(com.egitim.softverseeducation.model.Number(Integer.parseInt(binding.edtSayiEkle.text.toString())))
-                numberAdapter.setNumberList(numberList)
-                mesaj(binding.edtSayiEkle.text.toString() + " eklendi",this)
-            }else {
-                mesaj("Aynı sayı listede bulunuyor.",this)
-            }
+
         }
 
         binding.btnSayiAra.setOnClickListener{
