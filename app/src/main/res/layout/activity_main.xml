@@ -1,64 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#9C27B0"
     android:layout_margin="20dp"
     android:layout_height="wrap_content">
 
 
-   <ImageView
-       android:id="@+id/iv_image"
-       android:background="#2196F3"
-       android:layout_width="80dp"
-       android:layout_height="80dp"
-       android:src="@drawable/avatar"
-       android:layout_marginVertical="12dp"
-       android:layout_marginStart="12dp"/>
 
-   <LinearLayout
-       android:background="#980D0D"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="12dp"
-       android:orientation="vertical">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_kisiRoom"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
 
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="12dp"
-          android:layout_marginTop="12dp"
-          android:fontFamily="monospace"
-          android:textStyle="bold"
-          android:textSize="20sp"
-          android:rotationX="23"
-          android:text="Murat Karabulut" />
+        tools:listitem="@layout/kisi_kart_room"
+        />
 
 
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginStart="12dp"
-          android:layout_marginTop="4dp"
-          android:textSize="12sp"
-          android:textColor="#6A6767"
-          android:text="Gelince Ekmek alır mısın?"/>
 
-   </LinearLayout>
-
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:background="@color/black"
-       android:layout_gravity="center">
-
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="20:30"
-          android:layout_gravity="end"
-          android:gravity="center"
-           />
-   </LinearLayout>
 
 </LinearLayout>

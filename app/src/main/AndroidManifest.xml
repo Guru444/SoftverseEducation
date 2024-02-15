@@ -37,13 +37,13 @@
             android:name=".MerhabaActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.numberlist.NumberListActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".view.numberlist.NumberListActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
